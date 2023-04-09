@@ -57,9 +57,4 @@ declare_print_funcs(){
 }
 declare_print_funcs
 
-print() {
-  echo -n "${@}"
-}
-export -f print
-
 

@@ -29,7 +29,7 @@ export CMD_RUN_RECORDING_FILE="/tmp/cmd_run_recording.txt"
 cmd.run.announce.record() {
   local cmd="$*"
 
-  print "> "
+  printf "> "
   echo.green "$cmd"
 
   result=$(eval $cmd)
@@ -45,7 +45,7 @@ cmd.run.announce.record() {
 cmd.run.announce() {
   local cmd="$*"
 
-  print "> "
+  printf "> "
   echo.green "$cmd"
 
   # If we just try to capture the return code of: eval $cmd
