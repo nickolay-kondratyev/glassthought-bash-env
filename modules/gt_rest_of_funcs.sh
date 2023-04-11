@@ -1,10 +1,4 @@
 
-cd.git-repos-workplace() {
-  cd "${GIT_REPOS}" || return 1
-}
-export -f cd.git-repos-workplace
-
-
 gt.sandbox.checkout.commit.cleanly() {
   gt.sandbox.checkout.commit "$1" || return 1
 
