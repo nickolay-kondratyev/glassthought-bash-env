@@ -205,6 +205,23 @@ gt.snapshot() {
 }
 export -f gt.snapshot
 
+gt.print.currentCommitToCheckout(){
+  # Get current commit hash
+  local current_commit_hash="$(git rev-parse --short HEAD)"
+
+  _gt.sandbox.set.GT_SANDBOX_PREFIXED_PWD
+
+  commit_msg_file="/tmp/glassthought-out.md" || return 1
+  echo "" > "${commit_msg_file}"
+  # Formulate message of second commit
+  echo '```bash' >> "${commit_msg_file}"
+  echo "gt.sandbox.checkout.commit ${current_commit_hash:?} \\" >> "${commit_msg_file}"
+  echo "&& cd \"${GT_SANDBOX_PREFIXED_PWD:?}\"" >> "${commit_msg_file}"
+  echo '```' >> "${commit_msg_file}"
+
+  cat "${commit_msg_file}" | copy_announce
+}
+
 gt.snapshot.last-command() {
   local last_cmd="$(history | tail -n 2 | head -n 1 | awk '{$1=""; print $0}')" || return 1
 
