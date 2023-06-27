@@ -18,3 +18,4 @@ cli.ask_yes_no() {
     esac
   done
 }
+alias cli.ask_yes_or_no=cli.ask_yes_no
